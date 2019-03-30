@@ -1,0 +1,41 @@
+// questıon #3
+
+#include <stdio.h>
+
+int main()
+
+{
+
+int a = 1;
+int b = 2;
+
+a = a+b;
+b = a-b;
+a = a-b;
+
+printf("a = %d" , a);
+printf("\nb = %d" , b);
+}
+
+
+
+// QUESTION #4
+
+SELECT userId, COUNT(*)
+FROM i_user_login_logs
+GROUP BY userId
+HAVING COUNT(*) > 3
+
+
+
+
+// QUESTION #5
+
+SELECT userId, username, emailaddress *
+FROM i_users
+WHERE userId IN
+    (     SELECT userId
+          FROM i_user_login_logs
+          GROUP BY userId
+          HAVING COUNT(*) > 3
+    )
