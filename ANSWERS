@@ -1,9 +1,8 @@
-// questıon #3
+// QUESTION #3
 
 #include <stdio.h>
 
 int main()
-
 {
 
 int a = 1;
