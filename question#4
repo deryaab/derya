@@ -1,9 +1,6 @@
-SELECT *
+SELECT userId, COUNT(*)
 FROM i_user_login_logs
-WHERE userId IN
-    (     SELECT userId
-          FROM i_user_login_logs
-          GROUP BY userId
-          HAVING COUNT(*) > 3
-    )
-ORDER BY userId
+GROUP BY userId
+HAVING COUNT(*) > 3
+    
+
