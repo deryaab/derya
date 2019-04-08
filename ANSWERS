@@ -32,9 +32,10 @@ HAVING COUNT(*) > 3
 
 SELECT userId, username, emailaddress *
 FROM i_users
-WHERE userId IN
-    (     SELECT userId
-          FROM i_user_login_logs
-          GROUP BY userId
-          HAVING COUNT(*) > 3
+WHERE usderId IN
+    (  SELECT usderId
+    FROM i_user_login_logs  
+    GROUP BY usderId 
+    ORDER BY COUNT(*) DESC 
+    LIMIT 3;
     )
